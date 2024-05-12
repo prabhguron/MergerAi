@@ -8,7 +8,7 @@ export default function Index({ navigation }) {
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={[styles.button, styles.signInButton]}
-          onPress={() => navigation.navigate('SignIn')}>
+          onPress={() => navigation.navigate('signIn')}>
           <Text style={[styles.buttonText, styles.signInText]}>Sign In</Text>
         </TouchableOpacity>
         <TouchableOpacity

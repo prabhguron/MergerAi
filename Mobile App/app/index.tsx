@@ -1,24 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import PlaidLinkScreen from "./plaid"
+
 
 export default function Index({ navigation }) {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Welcome to Our App</Text>
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={[styles.button, styles.signInButton]}
-          onPress={() => navigation.navigate('SignIn')}>
-          <Text style={[styles.buttonText, styles.signInText]}>Sign In</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.button, styles.createAccountButton]}
-          onPress={() => navigation.navigate('CreateAccount')}>
-          <Text style={[styles.buttonText, styles.createAccountText]}>Create Account</Text>
-        </TouchableOpacity>
-      </View>
+  const [plaidVisible, setPlaidVisible] = useState(false);
+
+  if(!plaidVisible){
+    return (
+      <View style={styles.container}>
+          <Text style={styles.title}>Welcome to Our App</Text>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              style={[styles.button, styles.createAccountButton]}
+              onPress={() => setPlaidVisible(true)}>
+              <Text style={[styles.buttonText, styles.createAccountText]}>Create Account by logging in with plaid</Text>
+            </TouchableOpacity>
+          </View>
     </View>
-  );
+    );
+  }
+  return (
+    <PlaidLinkScreen/>
+  )
+
 }
 
 const styles = StyleSheet.create({

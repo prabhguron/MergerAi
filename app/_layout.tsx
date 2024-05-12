@@ -41,6 +41,15 @@ export default function TabLayout() {
           ),
         }}
       />
+       <Tabs.Screen
+        name="TellUsAboutYourselfPage"
+        options={{
+          title: 'aboutYourSelf',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

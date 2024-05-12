@@ -8,7 +8,7 @@ export default function Index({ navigation }) {
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={[styles.button, styles.signInButton]}
-          onPress={() => navigation.navigate('SignIn')}>
+          onPress={() => navigation.navigate('signIn')}>
           <Text style={[styles.buttonText, styles.signInText]}>Sign In</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end', // Align items to the bottom
     alignItems: 'center',
     backgroundColor: '#fff',
-    paddingBottom: 50, // Add padding to ensure buttons are not too close to the bottom
+    paddingBottom: 50, // Add padding to ensure content is not too close to the bottom
   },
   title: {
     fontSize: 24,
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     width: '100%',
     alignItems: 'center',
+    marginBottom: 20, // Add margin to create space between the buttons and the bottom
   },
   button: {
     width: '80%',

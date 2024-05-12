@@ -1,0 +1,54 @@
+openapi: 3.0.0
+info:
+  title: Vector Search API
+  description: API for querying vector search system
+  version: 1.0.0
+paths:
+  /query:
+    post:
+      summary: Query the vector search system
+      description: |
+        Submit a question to the vector search system and get an AI-generated response.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                input:
+                  type: string
+                  description: The question being asked
+                  example: "When did the transaction with ID yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0 occur?"
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ai_answer:
+                    type: string
+                    description: The AI-generated response
+                    example: "The transaction with the ID yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0 occurred on May 11, 2024 at 10:30 AM. It was a shopping transaction made by account BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp."
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid input format"
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Internal server error, please try again later"

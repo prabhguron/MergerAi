@@ -1,0 +1,283 @@
+openapi: 3.0.0
+info:
+  title: Vectorization API
+  description: API for vectorizing financial transaction data
+  version: 1.0.0
+paths:
+  /vectorize:
+    post:
+      summary: Vectorize financial transaction data
+      description: |
+        Submit financial transaction data to be vectorized by the system.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accounts:
+                  type: array
+                  description: List of accounts associated with the transaction
+                  items:
+                    type: object
+                    properties:
+                      account_id:
+                        type: string
+                        description: The unique identifier of the account
+                      balances:
+                        type: object
+                        description: Account balances information
+                        properties:
+                          available:
+                            type: number
+                            description: Available balance
+                          current:
+                            type: number
+                            description: Current balance
+                          iso_currency_code:
+                            type: string
+                            description: ISO currency code
+                          limit:
+                            type: number
+                            description: Account limit
+                          unofficial_currency_code:
+                            type: string
+                            description: Unofficial currency code
+                      mask:
+                        type: string
+                        description: Account mask
+                      name:
+                        type: string
+                        description: Account name
+                      official_name:
+                        type: string
+                        description: Official account name
+                      subtype:
+                        type: string
+                        description: Account subtype
+                      type:
+                        type: string
+                        description: Account type
+                item:
+                  type: object
+                  description: Information about the item associated with the transaction
+                  properties:
+                    available_products:
+                      type: array
+                      description: List of available products
+                      items:
+                        type: string
+                    billed_products:
+                      type: array
+                      description: List of billed products
+                      items:
+                        type: string
+                    consent_expiration_time:
+                      type: string
+                      description: Expiration time for consent
+                    error:
+                      type: string
+                      description: Error information
+                    institution_id:
+                      type: string
+                      description: Institution ID
+                    item_id:
+                      type: string
+                      description: Item ID
+                    update_type:
+                      type: string
+                      description: Update type
+                    webhook:
+                      type: string
+                      description: Webhook URL
+                request_id:
+                  type: string
+                  description: Request ID
+                total_transactions:
+                  type: integer
+                  description: Total number of transactions
+                transactions:
+                  type: array
+                  description: List of transactions
+                  items:
+                    type: object
+                    properties:
+                      account_id:
+                        type: string
+                        description: Account ID associated with the transaction
+                      account_owner:
+                        type: string
+                        description: Account owner information
+                      amount:
+                        type: number
+                        description: Transaction amount
+                      authorized_date:
+                        type: string
+                        description: Authorized date
+                      authorized_datetime:
+                        type: string
+                        description: Authorized datetime
+                      category:
+                        type: array
+                        description: Transaction categories
+                        items:
+                          type: string
+                      category_id:
+                        type: string
+                        description: Category ID
+                      check_number:
+                        type: string
+                        description: Check number
+                      counterparties:
+                        type: array
+                        description: List of counterparties
+                        items:
+                          type: object
+                          properties:
+                            confidence_level:
+                              type: string
+                              description: Confidence level
+                            entity_id:
+                              type: string
+                              description: Entity ID
+                            logo_url:
+                              type: string
+                              description: Logo URL
+                            name:
+                              type: string
+                              description: Name
+                            type:
+                              type: string
+                              description: Type
+                            website:
+                              type: string
+                              description: Website URL
+                      date:
+                        type: string
+                        description: Transaction date
+                      datetime:
+                        type: string
+                        description: Transaction datetime
+                      iso_currency_code:
+                        type: string
+                        description: ISO currency code
+                      location:
+                        type: object
+                        description: Transaction location
+                        properties:
+                          address:
+                            type: string
+                          city:
+                            type: string
+                          country:
+                            type: string
+                          lat:
+                            type: string
+                          lon:
+                            type: string
+                          postal_code:
+                            type: string
+                          region:
+                            type: string
+                          store_number:
+                            type: string
+                      logo_url:
+                        type: string
+                        description: Logo URL
+                      merchant_entity_id:
+                        type: string
+                        description: Merchant entity ID
+                      merchant_name:
+                        type: string
+                        description: Merchant name
+                      name:
+                        type: string
+                        description: Transaction name
+                      payment_channel:
+                        type: string
+                        description: Payment channel
+                      payment_meta:
+                        type: object
+                        description: Payment meta information
+                        properties:
+                          by_order_of:
+                            type: string
+                          payee:
+                            type: string
+                          payer:
+                            type: string
+                          payment_method:
+                            type: string
+                          payment_processor:
+                            type: string
+                          ppd_id:
+                            type: string
+                          reason:
+                            type: string
+                          reference_number:
+                            type: string
+                      pending:
+                        type: boolean
+                        description: Whether the transaction is pending
+                      pending_transaction_id:
+                        type: string
+                        description: Pending transaction ID
+                      personal_finance_category:
+                        type: object
+                        description: Personal finance category information
+                        properties:
+                          confidence_level:
+                            type: string
+                            description: Confidence level
+                          detailed:
+                            type: string
+                            description: Detailed category
+                          primary:
+                            type: string
+                            description: Primary category
+                      personal_finance_category_icon_url:
+                        type: string
+                        description: Personal finance category icon URL
+                      transaction_code:
+                        type: string
+                        description: Transaction code
+                      transaction_id:
+                        type: string
+                        description: Transaction ID
+                      transaction_type:
+                        type: string
+                        description: Transaction type
+                      unofficial_currency_code:
+                        type: string
+                        description: Unofficial currency code
+                      website:
+                        type: string
+                        description: Website URL
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid input format"
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Internal server error, please try again later"

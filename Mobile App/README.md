@@ -25,3 +25,8 @@ Getting started with the Vectorization App is easy:
 ## Share Your Feedback
 
 We're constantly working to improve the Vectorization App and make it even more useful for you. If you have any feedback
+
+
+## Future state
+Here's a figma diagram on where the road map looks more like
+![figma](Mergen-AI.png)

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-
+import PlaidLinkScreen from "./plaid"
 export default function Index({ navigation }) {
   return (
     <View style={styles.container}>

@@ -1,0 +1,2 @@
+# MergerAi
+Project for hackathon

@@ -27,7 +27,7 @@ To integrate with Pipedream:
 ## Sequence Diagram
 
 A sequence diagram illustrating the flow of interactions within the vector search system is attached to this repository. Please refer to it for a visual representation of how the components interact with each other.
-![sequence diagram](sequence%20diagram.png)
+![sequence diagram](sequence_diagram.png)
 
 
 ---
